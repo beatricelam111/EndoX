@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="EndoX: A GPU-Accelerated Endoscopic Perception Simulation Framework">
+  <meta name="description" content="EndoX is a GPU-accelerated NVIDIA Omniverse framework for generating CT-derived synthetic endoscopy datasets with multimodal pixel-perfect ground truth.">
+  <meta name="keywords" content="EndoX, endoscopy, synthetic data generation, medical imaging, Omniverse, depth estimation, surface normals, optical flow, coverage maps">
+  <meta name="author" content="Kwan Tung Lam, Ping Shu Ho, Patt Phurtivilai, Ka Chun Cheung">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="EndoX">
+  <meta property="og:title" content="EndoX: A GPU-Accelerated Endoscopic Perception Simulation Framework">
+  <meta property="og:description" content="A GPU-accelerated synthetic data generation framework for multimodal endoscopy simulation.">
+  <meta property="og:url" content="https://beatricelam111.github.io/EndoX/">
+  <meta property="og:image" content="https://beatricelam111.github.io/EndoX/static/images/rgb_2733.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="EndoX synthetic endoscopy preview">
+  <meta property="article:published_time" content="2026-01-01T00:00:00.000Z">
+  <meta property="article:author" content="Kwan Tung Lam, Ping Shu Ho, Patt Phurtivilai, Ka Chun Cheung">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="endoscopy">
+  <meta property="article:tag" content="synthetic data generation">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
+  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
+  <meta name="twitter:title" content="EndoX: A GPU-Accelerated Endoscopic Perception Simulation Framework">
+  <meta name="twitter:description" content="CT-derived synthetic endoscopy with RGB, depth, normals, optical flow, occlusion, coverage maps, and pose annotations.">
+  <meta name="twitter:image" content="https://beatricelam111.github.io/EndoX/static/images/rgb_2733.png">
+  <meta name="twitter:image:alt" content="EndoX synthetic endoscopy preview">
+
+  <!-- Academic/Research Specific -->
+  <meta name="citation_title" content="EndoX: A GPU-Accelerated Endoscopic Perception Simulation Framework">
+  <meta name="citation_author" content="Kwan Tung Lam">
+  <meta name="citation_author" content="Ping Shu Ho">
+  <meta name="citation_author" content="Patt Phurtivilai">
+  <meta name="citation_author" content="Ka Chun Cheung">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="MICCAI 2026">
+  <meta name="citation_pdf_url" content="https://beatricelam111.github.io/EndoX/static/pdfs/paper.pdf">
+
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#76b900">
+  <meta name="msapplication-TileColor" content="#76b900">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <title>EndoX | MICCAI 2026</title>
+
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/png" href="static/images/endox_icon.png">
+  <link rel="apple-touch-icon" href="static/images/endox_icon.png">
+
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+
+  <!-- Structured Data for Academic Papers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "EndoX: A GPU-Accelerated Endoscopic Perception Simulation Framework",
+    "description": "A GPU-accelerated synthetic data generation framework for multimodal endoscopy simulation.",
+    "author": [
+      {"@type": "Person", "name": "Kwan Tung Lam"},
+      {"@type": "Person", "name": "Ping Shu Ho"},
+      {"@type": "Person", "name": "Patt Phurtivilai"},
+      {"@type": "Person", "name": "Ka Chun Cheung"}
+    ],
+    "datePublished": "2026-01-01",
+    "publisher": {
+      "@type": "Organization",
+      "name": "MICCAI 2026"
+    },
+    "url": "https://beatricelam111.github.io/EndoX/",
+    "image": "https://beatricelam111.github.io/EndoX/static/images/rgb_2733.png",
+    "keywords": ["endoscopy", "synthetic data generation", "medical imaging", "Omniverse", "computer vision"],
+    "abstract": "EndoX is a GPU-accelerated synthetic data generation framework and interactive simulator for medical endoscopy that produces multimodal imagery and dense ground-truth annotations from CT-derived anatomy.",
+    "citation": "@inproceedings{endox2026,title={EndoX: A GPU-Accelerated Endoscopic Perception Simulation Framework},author={Lam, Kwan Tung and Ho, Ping Shu and Phurtivilai, Patt and Cheung, Ka Chun},booktitle={MICCAI},year={2026}}",
+    "isAccessibleForFree": true,
+    "license": "https://opensource.org/license/bsd-3-clause",
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://beatricelam111.github.io/EndoX/"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Synthetic Endoscopy"
+      },
+      {
+        "@type": "Thing",
+        "name": "Medical Computer Vision"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Website/Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "EndoX",
+    "url": "https://beatricelam111.github.io/EndoX/",
+    "logo": "https://beatricelam111.github.io/EndoX/static/images/endox_icon.png",
+    "sameAs": [
+      "https://github.com/beatricelam111/EndoX"
+    ]
+  }
+  </script>
+
+  <style>
+    .figure-block {
+      margin: 1rem 0;
+      text-align: center;
+    }
+    .figure-block img {
+      width: 100%;
+    }
+    .figure-block .compare-card {
+      width: 100%;
+    }
+    .compare-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .figure-block figcaption {
+      margin-top: 0.75rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .endox-image {
+      width: 100%;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+
+    .compare-card {
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-lg);
+      background: #ffffff;
+      box-shadow: var(--shadow-md);
+      --split: 50%;
+    }
+
+    .compare {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #0f172a;
+    }
+
+    .compare img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .compare__after {
+      clip-path: inset(0 calc(100% - var(--split)) 0 0);
+    }
+
+    .compare__handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: var(--split);
+      width: 2px;
+      transform: translateX(-1px);
+      background: #ffffff;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .compare__handle::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 34px;
+      height: 34px;
+      transform: translate(-50%, -50%);
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.68);
+    }
+
+    .compare input[type="range"] {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      opacity: 0;
+      cursor: ew-resize;
+    }
+
+    .compare-labels {
+      position: absolute;
+      left: 0.75rem;
+      right: 0.75rem;
+      bottom: 0.75rem;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+
+    .compare-labels span {
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      color: #ffffff;
+      background: rgba(0, 0, 0, 0.58);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .compare-body {
+      padding: 0.6rem 0.8rem;
+    }
+
+    .compare-title {
+      margin: 0 0 0.25rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .modality-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: 0.5rem 0;
+    }
+
+    .modality-buttons button {
+      border: 1px solid var(--border-color);
+      border-radius: 999px;
+      padding: 0.25rem 0.5rem;
+      color: var(--text-secondary);
+      background: #f8fafc;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.75rem;
+    }
+
+    .modality-buttons button.active {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+      background: #f0f9e0;
+      font-weight: 700;
+    }
+
+    .modality-buttons button:disabled {
+      cursor: not-allowed;
+      opacity: 0.45;
+    }
+
+    .file-tree {
+      padding: 1rem;
+      border-radius: var(--border-radius);
+      color: #dbeafe;
+      background: #0f172a;
+      overflow-x: auto;
+    }
+
+  </style>
+</head>
+<body>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+
+  <main id="main-content">
+  <section class="hero publication-header">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">EndoX: A GPU-Accelerated Endoscopic Perception Simulation Framework</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Kwan Tung Lam<sup>*1,3</sup>,</span>
+              <span class="author-block">Ping Shu Ho<sup>*3</sup>,</span>
+              <span class="author-block">Patt Phurtivilai<sup>2,3</sup>,</span>
+              <span class="author-block">Ka Chun Cheung<sup>3</sup></span>
+            </div>
+
+            <div class="is-size-6 publication-authors" style="color:var(--text-secondary);">
+              <span class="author-block"><sup>1</sup>The Chinese University of Hong Kong</span><br>
+              <span class="author-block"><sup>2</sup>The University of Hong Kong</span><br>
+              <span class="author-block"><sup>3</sup>NVIDIA AI Technology Center, NVIDIA Corporation</span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">MICCAI 2026</span>
+              <span class="eql-cntrb"><small><br><sup>*</sup>Equal Contribution</small></span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://github.com/beatricelam111/EndoX" target="_blank" class="external-link button is-normal is-rounded is-dark" rel="noreferrer">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-database"></i>
+                    </span>
+                    <span>Dataset</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Endoscopic examination of gastrointestinal organs increasingly relies on 3D computer vision techniques such as depth estimation, surface reconstruction, and missing region detection. Yet rigorous method development for endoscopy remains challenging, as ground-truth data cannot be readily acquired during clinical procedures. We present EndoX, a GPU-accelerated synthetic data generation (SDG) framework and interactive simulator for medical endoscopy that enables efficient generation of fully annotated datasets, minimizing the sim-to-real gap in algorithm development. EndoX automates anatomically accurate 3D mesh generation from computed tomography (CT) data and employs physics-based rendering to produce multimodal imagery&mdash;including RGB, depth, surface normals, optical flow, occlusion, and camera coverage maps&mdash;with precise ground-truth geometry. For validation, we constructed organ-specific datasets by navigating a virtual capsule endoscope through anatomically accurate CT-derived organ meshes, with sensor and lighting parameters configured to approximate real capsule endoscopes. Quantitative evaluations on depth estimation, pose estimation, and 3D Gaussian splatting demonstrate that models trained on EndoX data achieve competitive accuracy, and qualitative assessment confirms transferability to clinical endoscopy. The framework is designed for scalable deployment on GPU nodes via containerization. A sample dataset comprising 3 video sequences (12,000 frames) with paired ground-truth annotations and 3D models is available. The containerized headless version for high-throughput data generation will be publicly released upon acceptance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Contributions -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Contributions</h2>
+      <div class="content">
+        <p>We propose <strong>EndoX</strong>, a GPU-accelerated synthetic data generation framework and high-fidelity simulator for medical endoscopy that:</p>
+        <ul>
+          <li><strong>Automates anatomically accurate 3D mesh generation</strong> from CT data across diverse patient anatomies.</li>
+          <li>Employs <strong>physically-based rendering (PBR)</strong> for optically accurate multimodal imagery with <strong>configurable sensor, lighting, material, and trajectory parameters.</strong> </li>
+          <li>Is designed for <strong>scalable deployment for high-throughput data production</strong> with the containerized headless version to be publicly released upon acceptance.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End contributions -->
+
+
+<!-- 3D Model Creation -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Automated Generation of 3D Models</h2>
+      <figure class="figure-block">
+        <img src="static/images/fig1_pipeline.png" class="endox-image" alt="CT-to-mesh pipeline" loading="lazy">
+        <figcaption>CT-to-mesh reconstruction pipeline converting 2D CT slices into a 3D mesh model. They are imported into NVIDIA Omniverse for scene composition and serves as 3D ground truth.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+<!-- End 3D model creation -->
+
+
+<!-- Post-processing -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Configurable Post-processing Effects</h2>
+      <figure class="figure-block">
+        <img src="static/images/fig2_configuration.png" class="endox-image" alt="Post-processing configuration" loading="lazy">
+        <figcaption>Post-processing effects are configured to simulate optical imperfections common in clinical endoscopes and can be combined for domain randomization across synthetic frames.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+<!-- End post-processing -->
+
+
+<!-- AOV Capture -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Physics-Based Rendering of Arbitrary Output Variables</h2>
+      <figure class="figure-block">
+        <div class="compare-row">
+          <article class="compare-card" data-example="normal">
+            <div class="compare" aria-label="Normal mucosal modality comparison">
+              <img class="compare__before" src="static/images/rgb_0501.png" alt="Normal mucosal RGB rendering">
+              <img class="compare__after" src="static/images/depth_0501.png" alt="Normal mucosal selected modality">
+              <div class="compare__handle" aria-hidden="true"></div>
+              <div class="compare-labels"><span class="after-label">Depth</span><span>RGB</span></div>
+              <input type="range" min="0" max="100" value="50" aria-label="Normal mucosal comparison slider">
+            </div>
+            <div class="compare-body">
+              <p class="compare-title">Normal Mucosal Texture</p>
+              <div class="modality-buttons" aria-label="Normal mucosal modalities">
+                <button data-modality="cameraNormals">Camera normals</button>
+                <button data-modality="worldNormals">World normals</button>
+                <button class="active" data-modality="depth">Depth</button>
+                <button data-modality="occlusion">Occlusion</button>
+                <button disabled title="Placeholder asset">Optical flow</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="compare-card" data-example="pathological">
+            <div class="compare" aria-label="Pathological texture modality comparison">
+              <img class="compare__before" src="static/images/rgb_0540.png" alt="Pathological texture RGB rendering">
+              <img class="compare__after" src="static/images/depth_0540.png" alt="Pathological texture selected modality">
+              <div class="compare__handle" aria-hidden="true"></div>
+              <div class="compare-labels"><span class="after-label">Depth</span><span>RGB</span></div>
+              <input type="range" min="0" max="100" value="50" aria-label="Pathological texture comparison slider">
+            </div>
+            <div class="compare-body">
+              <p class="compare-title">Pathological Texture</p>
+              <div class="modality-buttons" aria-label="Pathological texture modalities">
+                <button data-modality="cameraNormals">Camera normals</button>
+                <button data-modality="worldNormals">World normals</button>
+                <button class="active" data-modality="depth">Depth</button>
+                <button data-modality="occlusion">Occlusion</button>
+                <button disabled title="Placeholder asset">Optical flow</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="compare-card" data-example="polyp">
+            <div class="compare" aria-label="Polyp modality comparison">
+              <img class="compare__before" src="static/images/rgb_2733.png" alt="Polyp RGB rendering">
+              <img class="compare__after" src="static/images/depth_2733.png" alt="Polyp selected modality">
+              <div class="compare__handle" aria-hidden="true"></div>
+              <div class="compare-labels"><span class="after-label">Depth</span><span>RGB</span></div>
+              <input type="range" min="0" max="100" value="50" aria-label="Polyp comparison slider">
+            </div>
+            <div class="compare-body">
+              <p class="compare-title">Polyp</p>
+              <div class="modality-buttons" aria-label="Polyp modalities">
+                <button data-modality="cameraNormals">Camera normals</button>
+                <button data-modality="worldNormals">World normals</button>
+                <button class="active" data-modality="depth">Depth</button>
+                <button data-modality="occlusion">Occlusion</button>
+                <button disabled title="Placeholder asset">Optical flow</button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <figcaption>A virtual capsule endoscope traverses the mesh, rendering RGB frames and dense ground-truth annotations including depth, surface normals, optical flow, and occlusion.</figcaption>
+      </figure>
+
+      <figure class="figure-block" style="max-width:70%;margin-left:auto;margin-right:auto;">
+        <img src="static/images/coverage_map_preview.gif" class="endox-image" alt="Coverage map animation" loading="lazy">
+        <figcaption>Camera coverage map acquisition during virtual capsule camera traversal.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+<!-- End AOV capture -->
+
+
+<!-- Dataset -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Dataset and Distribution</h2>
+      <p style="margin-bottom:1.5rem; text-align:center;">
+        <a href="https://huggingface.co/datasets/beatricelam111/EndoX" target="_blank" rel="noreferrer" class="external-link button is-normal is-rounded is-dark">
+          <span class="icon"><i class="fas fa-database"></i></span>
+          <span>Download Dataset on Hugging Face</span>
+        </a>
+      </p>
+      <div class="content">
+        <p>The example scene in the sample dataset was reconstructed from CT colonography data (CC BY 3.0), with the mesh surface texture adopted from VRCaps. For each video sequence, we provide: <strong>(i) a triangulated 3D mesh reconstructed from CT data (Wavefront OBJ)</strong>, and <strong>(ii) a vertex-wise coverage map in vertex indices array in .npz format</strong>.</p>
+        <p>For every frame, we provide the following annotations:</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem 2rem;margin-top:0.75rem;">
+          <p style="margin:0;"><strong>Depth:</strong> distance from the camera plane to the object surface, clamped to 0&ndash;100 mm, linearly scaled, encoded as a 16-bit grayscale image.</p>
+          <p style="margin:0;"><strong>Surface normals:</strong> reported in world and camera coordinates; X, Y, Z components stored in R, G, B channels, each linearly mapped from [&minus;1, 1] to [0, 65535] as a 16-bit color image.</p>
+          <p style="margin:0;"><strong>Optical flow:</strong> per-pixel displacement between consecutive frames; R and G channels encode X- and Y-direction motion (&plusmn;512 px), each linearly mapped to [0, 65535] as a 16-bit color image (the first frame carries no flow value).</p>
+          <p style="margin:0;"><strong>Occlusion:</strong> an 8-bit binary mask within the 0&ndash;100 mm clipping range; pixels occluding other mesh faces set to 255, all others to 0.</p>
+          <p style="margin:0;"><strong>Camera pose:</strong> per-frame world-space translation and rotation stored as t<sub>x</sub>, t<sub>y</sub>, t<sub>z</sub>, q<sub>x</sub>, q<sub>y</sub>, q<sub>z</sub>, q<sub>w</sub> (unit quaternion) in a text file.</p>
+          <p style="margin:0;"><strong>Coverage map:</strong> vertex-wise visibility stored as an index array in .npz format.</p>
+        </div>
+      </div>
+
+      <h3 class="title is-5" style="margin-top:1.5rem;">Structure</h3>
+      <div class="content">
+        <pre class="file-tree"><code>EndoX_dataset/
+├── colon/
+│   ├── calibration.yaml
+│   ├── sequence_1/
+│   │   ├── coverage_map/
+│   │   ├── rgb/
+│   │   │   ├── 0000.png
+│   │   │   ├── 0001.png
+│   │   │   └── ...
+│   │   ├── depth/
+│   │   ├── normal_world/
+│   │   ├── normal_camera/
+│   │   ├── optical_flow/
+│   │   ├── occlusion/
+│   │   └── camera_pose/
+│   └── sequence_2/
+│       └── ...
+└── small_intestine/
+    ├── calibration.yaml
+    ├── sequence_1/
+    │   └── ...
+    └── sequence_2/
+        └── ...</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End dataset -->
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@inproceedings{endox2026,
+  title     = {EndoX: A GPU-Accelerated Endoscopic Perception Simulation Framework},
+  author    = {Kwan Tung Lam and Ping Shu Ho and Patt Phurtivilai and Ka Chun Cheung},
+  booktitle = {International Conference on Medical Image Computing and Computer-Assisted Intervention (MICCAI)},
+  year      = {2026}
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noreferrer">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank" rel="noreferrer">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  <script>
+    const modalities = {
+      normal: {
+        cameraNormals: {
+          label: "Camera Normals",
+          src: "static/images/camera_normal_0501.png",
+          description: "Healthy mucosal appearance paired with camera-space normal ground truth."
+        },
+        worldNormals: {
+          label: "World Normals",
+          src: "static/images/world_normal_0501.png",
+          description: "World-space normals encode global surface orientation in RGB channels."
+        },
+        depth: {
+          label: "Depth",
+          src: "static/images/depth_0501.png",
+          description: "Depth stores the camera-to-surface distance for every visible pixel."
+        },
+        occlusion: {
+          label: "Occlusion",
+          src: "static/images/occlusion_0501.png",
+          description: "Occlusion masks identify pixels hiding downstream mesh surfaces."
+        }
+      },
+      pathological: {
+        cameraNormals: {
+          label: "Camera Normals",
+          src: "static/images/camera_normals_0540.png",
+          description: "Geometry annotations remain exact under abnormal mucosal appearance."
+        },
+        worldNormals: {
+          label: "World Normals",
+          src: "static/images/world_normal_0540.png",
+          description: "World-space normals support 3D learning tasks independent of view direction."
+        },
+        depth: {
+          label: "Depth",
+          src: "static/images/depth_0540.png",
+          description: "Depth pairs pathological texture with dense metric surface supervision."
+        },
+        occlusion: {
+          label: "Occlusion",
+          src: "static/images/occlusion_0540.png",
+          description: "Binary visibility masks separate foreground exposure from hidden anatomy."
+        }
+      },
+      polyp: {
+        cameraNormals: {
+          label: "Camera Normals",
+          src: "static/images/camera_normals_2733.png",
+          description: "Polyp geometry is preserved in camera-space surface-normal annotations."
+        },
+        worldNormals: {
+          label: "World Normals",
+          src: "static/images/world_normal_2733.png",
+          description: "World-space normal maps expose lesion and fold geometry for reconstruction."
+        },
+        depth: {
+          label: "Depth",
+          src: "static/images/depth_2733.png",
+          description: "Dense depth captures the lesion protrusion and surrounding lumen surface."
+        },
+        occlusion: {
+          label: "Occlusion",
+          src: "static/images/occlusion_2733.png",
+          description: "Occlusion maps highlight visibility boundaries caused by folds and lesions."
+        }
+      }
+    };
+
+    document.querySelectorAll(".compare-card").forEach((card) => {
+      const range = card.querySelector('input[type="range"]');
+      const after = card.querySelector(".compare__after");
+      const afterLabel = card.querySelector(".after-label");
+      const description = card.querySelector(".modality-description");
+      const example = card.dataset.example;
+
+      const updateSplit = () => {
+        card.style.setProperty("--split", `${range.value}%`);
+      };
+
+      range.addEventListener("input", updateSplit);
+      updateSplit();
+
+      card.querySelectorAll("[data-modality]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const modality = modalities[example][button.dataset.modality];
+          if (!modality) return;
+
+          after.src = modality.src;
+          after.alt = `${example} ${modality.label.toLowerCase()} modality`;
+          afterLabel.textContent = modality.label;
+          description.textContent = modality.description;
+
+          card.querySelectorAll("[data-modality]").forEach((candidate) => {
+            candidate.classList.toggle("active", candidate === button);
+          });
+        });
+      });
+    });
+  </script>
+  </body>
+  </html>

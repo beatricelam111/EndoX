@@ -1,0 +1,41 @@
+# =============================================================================
+# EndoX (omni.endox) - pip dependencies for omni.pip_prebundle
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# Core dependencies
+# ---------------------------------------------------------------------------
+[[dependency]]
+python = "../../_build/target-deps/python"
+packages = [
+    "opencv-python==4.10.0.84",
+    "vtk==9.3.1",
+    "scipy==1.14.1",
+]
+target = "../../_build/target-deps/pip_prebundle"
+platforms = ["*"]
+download_only = false
+append_to_install_folder = true
+
+# ---------------------------------------------------------------------------
+# DICOM pipeline dependencies
+# ---------------------------------------------------------------------------
+[[dependency]]
+python = "../../_build/target-deps/python"
+packages = [
+    "torch==2.2.1",
+    "torchvision==0.17.1",
+    "torchaudio==2.2.1",
+    "pytorch-ignite==0.5.2",
+    "cupy-cuda12x==13.3.0",
+    "monai[fire]",
+    "nibabel",
+    "dicom2nifti",
+]
+extra_args = [
+    "--extra-index-url=https://download.pytorch.org/whl/cu121",
+]
+target = "../../_build/target-deps/pip_prebundle"
+platforms = ["*"]
+download_only = false
+append_to_install_folder = true

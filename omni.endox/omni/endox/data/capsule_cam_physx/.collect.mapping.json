@@ -1,0 +1,89 @@
+{
+    "version": "1.0",
+    "file_records": [
+        {
+            "source_url": "https://omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Emissives/Light_6000K.mdl",
+            "source_hash": "64e16fd01501841a88748645bd52f99ef7dbb1eb",
+            "target_url": "./omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Emissives/Light_6000K.mdl",
+            "target_hash": "5a42be17eff47029f5564b45c12406f3bc6f5712"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Glass/Clear_Glass.mdl",
+            "source_hash": "bd25d68a347b33d03d070588f2595aa1abf006db",
+            "target_url": "./omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Glass/Clear_Glass.mdl",
+            "target_hash": "233b1d0b8c4e255a2c0c4e1b5c43dae6e6459282"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Metals/Aluminum_Anodized_Charcoal.mdl",
+            "source_hash": "ffe4dd10c69c2dd072467bb1e4b351105604bd5d",
+            "target_url": "./omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Metals/Aluminum_Anodized_Charcoal.mdl",
+            "target_hash": "86499677b7af29c6d694e214e030ab1e2fbb2369"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Metals/Aluminum_Polished.mdl",
+            "source_hash": "a5d07be17e0b131739ce6b1c7a40fa3a5967797a",
+            "target_url": "./omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Metals/Aluminum_Polished.mdl",
+            "target_hash": "5911434f3bce743dbcce5d869132f204c91239c4"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Metals/Metal_Door.mdl",
+            "source_hash": "ae73daac333035921d1f60b57855b84924f5e944",
+            "target_url": "./omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Metals/Metal_Door.mdl",
+            "target_hash": "431e2c9a7c0af1093f7f770ef3e9275d2e15abc8"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Plastics/Plastic.mdl",
+            "source_hash": "f7d6ced9025738038c619f7195ce4d80770e2853",
+            "target_url": "./omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Plastics/Plastic.mdl",
+            "target_hash": "7807ab6128193049530613d8f63d66aea814a0f0"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Plastics/Plastic_ABS.mdl",
+            "source_hash": "e8b2f7a264c855a82b8a4c5d1b1ec33b4487d936",
+            "target_url": "./omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Plastics/Plastic_ABS.mdl",
+            "target_hash": "38e44c52ddfa6b960a628216153fa2903457ec84"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Metals/Aluminum_Anodized/Aluminum_Anodized_BaseColor.png",
+            "source_hash": "de44488b874fe59e133ccc7f83fb498638ed0677",
+            "target_url": "./omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Metals/Aluminum_Anodized/Aluminum_Anodized_BaseColor.png",
+            "target_hash": "bb5515a4926a78dfcd07e0c6f847f22aedd4980c"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Metals/Metal_Door/Metal_Door_Normal.png",
+            "source_hash": "a100b0d8ed0656d1df335420663f0716c91d9cc2",
+            "target_url": "./omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Metals/Metal_Door/Metal_Door_Normal.png",
+            "target_hash": "73dd43ac382d14c6b91b53b5a0f02a316d54b59f"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Metals/Aluminum_Polished/Aluminum_Polished_BaseColor.png",
+            "source_hash": "598e493f4cdf0451f05949d157cb4ee1a9387a0e",
+            "target_url": "./omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Metals/Aluminum_Polished/Aluminum_Polished_BaseColor.png",
+            "target_hash": "d082fbcc9fe07dae9c3b8d78247fcecc5f84b5c6"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Metals/Aluminum_Anodized/Aluminum_Anodized_ORM.png",
+            "source_hash": "b232495891e22ae719882aee726876b50787e76e",
+            "target_url": "./omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Metals/Aluminum_Anodized/Aluminum_Anodized_ORM.png",
+            "target_hash": "6a10547d29a0c4f69181c833daa8c752a08c44a2"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Metals/Aluminum_Polished/Aluminum_Polished_ORM.png",
+            "source_hash": "d9aa7cdd7406fe346e2a6cb1d7153a65f79b159c",
+            "target_url": "./omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Metals/Aluminum_Polished/Aluminum_Polished_ORM.png",
+            "target_hash": "5a6faabc8ec2bcce8c0b31989cc77f299b47c05a"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Metals/Aluminum_Anodized/Aluminum_Anodized_Normal.png",
+            "source_hash": "a00b9fece6d6bcfc154265b41cd19488f6af3fa4",
+            "target_url": "./omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Metals/Aluminum_Anodized/Aluminum_Anodized_Normal.png",
+            "target_hash": "64f5eaed42da24c8d29037a991bdadbed25f20db"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Metals/Aluminum_Polished/Aluminum_Polished_Normal.png",
+            "source_hash": "2fc2500292eaedfc4aeb1d3c87d9967c397ba830",
+            "target_url": "./omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_1/Base/Metals/Aluminum_Polished/Aluminum_Polished_Normal.png",
+            "target_hash": "1e477c28402bab5effa56c1536861a74f593adab"
+        }
+    ]
+}

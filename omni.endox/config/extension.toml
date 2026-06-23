@@ -1,0 +1,43 @@
+[package]
+title = "EndoX"
+version = "1.0.0"
+description = """EndoX is an NVIDIA Omniverse extension for GPU-accelerated endoscopic perception simulation. \
+It provides a unified GUI panel that drives the full simulation workflow: converting DICOM scans into \
+3-D organ meshes (via Vista3D segmentation), extracting anatomical centrelines with VMTK to generate \
+camera motion paths, capturing multi-modal synthetic data (RGB, depth, surface normals, optical flow, \
+camera pose, and occlusion maps) through Replicator and Warp, and computing per-vertex coverage maps \
+to quantify camera visibility across the organ surface."""
+category = "Simulation"
+changelog = "docs/CHANGELOG.md"
+icon = "data/icon.png"
+keywords = ["endoscopy", "simulation", "aov", "centreline", "coverage"]
+preview_image = "data/preview.png"
+readme = "docs/README.md"
+
+[dependencies]
+"omni.ui" = {}
+"omni.usd" = {}
+"omni.timeline" = {}
+"omni.kit.viewport.utility" = {}
+"omni.replicator.core" = {}
+"omni.warp.core" = {}
+"omni.anim.motion_path.core" = {}
+"omni.anim.curve.core" = {}
+"omni.curve.creator" = {}
+"omni.curve.manipulator" = {}
+"omni.endox" = {}
+
+[settings]
+
+[[python.module]]
+name = "omni.endox"
+
+[documentation]
+pages = [
+    "docs/Overview.md",
+    "docs/CHANGELOG.md",
+]
+
+[[test]]
+dependencies = []
+args = []
