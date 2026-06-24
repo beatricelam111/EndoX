@@ -105,7 +105,7 @@ Example captured frames with pathological texture applied:
 Organ meshes that contain polyp structures require pathological CT input.
 
 1. Obtain pathological CT data that includes polyp-bearing anatomy.
-2. Input the pathological CT in DICOM format into the **CT-to-mesh pipeline** provided by the EndoX extension (see the 3-D Model Import section of the [main README](../../../README.md)).
+2. Input the pathological CT in DICOM format into the **CT-to-mesh pipeline** provided by the EndoX extension (see [3-D Model Import](../../../README.md#1-import-a-3-d-model) in the main README).
 3. After processing, the resulting mesh will reflect the polyp structures present in the source CT.
 
 Example rendered frames from a polyp-bearing mesh:
