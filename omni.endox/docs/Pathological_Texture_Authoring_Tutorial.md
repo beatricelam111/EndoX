@@ -26,10 +26,14 @@ Next, prepare one or more pathological patterns that will be blended onto the ba
 
 **Ulcerative colitis pattern**
 
-**Bleeding / diffuse inflammation pattern**
 
 <p align="center">
   <img src="assets/pathological_texture/ulcerative_colitis_pattern.png" width="260" alt="Ulcerative colitis pattern"/>
+</p>
+
+**Bleeding / diffuse inflammation pattern**
+
+<p align="center">
   <img src="assets/pathological_texture/bleeding_pattern.png" width="260" alt="Bleeding pattern"/>
 </p>
 
@@ -49,7 +53,7 @@ After exporting the pathological texture, assign it to the organ material in Omn
 6. Confirm that the organ surface updates in the viewport. If the texture appears rotated, stretched, or offset, verify the mesh UVs and texture tiling settings.
 
 <p align="center">
-  <img src="assets/pathological_texture/omniverse_texture_linking.png" width="560" alt="Omniverse folder tree and texture linking"/>
+  <img src="assets/pathological_texture/omniverse_texture_linking.png" width="7000" alt="Omniverse folder tree and texture linking"/>
 </p>
 <p align="center"><em>Navigate the Omniverse folder tree to locate the organ material, then link the pathological texture file.</em></p>
 
@@ -64,7 +68,7 @@ Instead of compositing in an external editor, you can paint pathology directly o
 5. Save or bake the painted result to a texture file.
 
 <p align="center">
-  <img src="assets/pathological_texture/texture_painting.gif" width="560" alt="Texture painting demonstration"/>
+  <img src="assets/pathological_texture/texture_painting.gif" width="400" alt="Texture painting demonstration"/>
 </p>
 <p align="center"><em>Texture painting allows precise, localised placement of pathological patterns on the organ surface.</em></p>
 
@@ -75,9 +79,9 @@ Once the pathological texture is assigned, the scene is ready for EndoX AOV capt
 Example captured frames with pathological texture applied:
 
 <p align="center">
-  <img src="assets/pathological_texture/0029.png" width="230" alt="Captured frame 0029"/>
-  <img src="assets/pathological_texture/0534.png" width="230" alt="Captured frame 0534"/>
-  <img src="assets/pathological_texture/0674.png" width="230" alt="Captured frame 0674"/>
+  <img src="assets/pathological_texture/0029.png" width="300" alt="Captured frame 0029"/>
+  <img src="assets/pathological_texture/0534.png" width="300" alt="Captured frame 0534"/>
+  <img src="assets/pathological_texture/0674.png" width="300" alt="Captured frame 0674"/>
 </p>
 
 ---
@@ -93,8 +97,8 @@ Organ meshes that contain polyp structures require pathological CT input.
 Example rendered frames from a polyp-bearing mesh:
 
 <p align="center">
-  <img src="assets/polyps/2519.png" width="320" alt="Polyp frame 2519"/>
-  <img src="assets/polyps/2733.png" width="320" alt="Polyp frame 2733"/>
+  <img src="assets/polyps/2519.png" width="300" alt="Polyp frame 2519"/>
+  <img src="assets/polyps/2733.png" width="300" alt="Polyp frame 2733"/>
 </p>
 
 ---
