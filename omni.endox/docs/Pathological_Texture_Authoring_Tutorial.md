@@ -8,6 +8,9 @@ This tutorial shows how to edit scenes in NVIDIA Omniverse to support different 
   - [1. Pathological Texture](#1-pathological-texture)
   - [2. Polyps](#2-polyps)
 - [Material Editing](#material-editing)
+  - [Editing Material Properties](#editing-material-properties)
+- [Post-Processing Effect Editing](#post-processing-effect-editing)
+  - [Editing Post-Processing Effects](#editing-post-processing-effects)
 
 ---
 
@@ -17,20 +20,17 @@ This tutorial shows how to edit scenes in NVIDIA Omniverse to support different 
 
 #### Step 1 &mdash; Prepare Base and Pathology Textures
 
-Start with the **normal mucosal texture** for the target GI organ. This texture should be UV-compatible with the organ mesh so that it wraps cleanly along the lumen.
+Start with the normal mucosal texture for the target GI organ. This texture should be UV-compatible with the organ mesh so that it wraps cleanly along the lumen.
 
-Next, prepare one or more **pathological patterns** that will be blended onto the base mucosa. Two example patterns are provided below.
+Next, prepare one or more pathological patterns that will be blended onto the base mucosa. Two example patterns are provided below.
 
 **Ulcerative colitis pattern**
-
-<p align="center">
-  <img src="assets/pathological_texture/ulcerative_colitis_pattern.png" width="480" alt="Ulcerative colitis pattern"/>
-</p>
 
 **Bleeding / diffuse inflammation pattern**
 
 <p align="center">
-  <img src="assets/pathological_texture/bleeding_pattern.png" width="480" alt="Bleeding pattern"/>
+  <img src="assets/pathological_texture/ulcerative_colitis_pattern.png" width="260" alt="Ulcerative colitis pattern"/>
+  <img src="assets/pathological_texture/bleeding_pattern.png" width="260" alt="Bleeding pattern"/>
 </p>
 
 #### Step 2 &mdash; Overlay the Pathology Pattern
@@ -49,7 +49,7 @@ After exporting the pathological texture, assign it to the organ material in Omn
 6. Confirm that the organ surface updates in the viewport. If the texture appears rotated, stretched, or offset, verify the mesh UVs and texture tiling settings.
 
 <p align="center">
-  <img src="assets/pathological_texture/omniverse_texture_linking.png" width="720" alt="Omniverse folder tree and texture linking"/>
+  <img src="assets/pathological_texture/omniverse_texture_linking.png" width="560" alt="Omniverse folder tree and texture linking"/>
 </p>
 <p align="center"><em>Navigate the Omniverse folder tree to locate the organ material, then link the pathological texture file.</em></p>
 
@@ -64,7 +64,7 @@ Instead of compositing in an external editor, you can paint pathology directly o
 5. Save or bake the painted result to a texture file.
 
 <p align="center">
-  <img src="assets/pathological_texture/texture_painting.gif" width="720" alt="Texture painting demonstration"/>
+  <img src="assets/pathological_texture/texture_painting.gif" width="560" alt="Texture painting demonstration"/>
 </p>
 <p align="center"><em>Texture painting allows precise, localised placement of pathological patterns on the organ surface.</em></p>
 
@@ -75,16 +75,16 @@ Once the pathological texture is assigned, the scene is ready for EndoX AOV capt
 Example captured frames with pathological texture applied:
 
 <p align="center">
-  <img src="assets/pathological_texture/0029.png" width="280" alt="Captured frame 0029"/>
-  <img src="assets/pathological_texture/0534.png" width="280" alt="Captured frame 0534"/>
-  <img src="assets/pathological_texture/0674.png" width="280" alt="Captured frame 0674"/>
+  <img src="assets/pathological_texture/0029.png" width="210" alt="Captured frame 0029"/>
+  <img src="assets/pathological_texture/0534.png" width="210" alt="Captured frame 0534"/>
+  <img src="assets/pathological_texture/0674.png" width="210" alt="Captured frame 0674"/>
 </p>
 
 ---
 
 ### 2. Polyps
 
-Organ meshes that contain polyp structures require **pathological CT input**.
+Organ meshes that contain polyp structures require pathological CT input.
 
 1. Obtain pathological CT data that includes polyp-bearing anatomy.
 2. Input the pathological CT in DICOM format into the **CT-to-mesh pipeline** provided by the EndoX extension (see the 3-D Model Import section of the [main README](../../../README.md)).
@@ -93,15 +93,15 @@ Organ meshes that contain polyp structures require **pathological CT input**.
 Example rendered frames from a polyp-bearing mesh:
 
 <p align="center">
-  <img src="assets/polyps/2519.png" width="420" alt="Polyp frame 2519"/>
-  <img src="assets/polyps/2733.png" width="420" alt="Polyp frame 2733"/>
+  <img src="assets/polyps/2519.png" width="320" alt="Polyp frame 2519"/>
+  <img src="assets/polyps/2733.png" width="320" alt="Polyp frame 2733"/>
 </p>
 
 ---
 
 ## Material Editing
 
-Post-processing effects are configured to simulate optical imperfections common in clinical endoscopes. These effects can be combined and randomised across synthetic frames for domain randomisation.
+Material settings control how the organ surface responds to light after the texture has been applied. In addition to changing the diffuse / albedo map, you can tune surface properties such as roughness, specular response, and subsurface scattering to make the mucosa appear wetter, smoother, more reflective, or more tissue-like. These edits are useful for matching a target endoscope appearance and for generating visual diversity across synthetic datasets.
 
 ### Editing Material Properties
 
@@ -111,6 +111,22 @@ To adjust material parameters for the organ surface:
 2. Open the **Properties** panel to access shader inputs such as albedo, roughness, metallic, and subsurface scattering.
 3. Modify the values to match the desired tissue appearance.
 
+<p align="center">
+  <img src="assets/Rendering/PBR_material.PNG" width="560" alt="PBR material properties panel"/>
+</p>
+<p align="center"><em>The material Properties panel exposes the PBR controls used to tune organ appearance.</em></p>
+
+---
+
+## Post-Processing Effect Editing
+
+Post-processing effects are configured to simulate optical imperfections common in clinical endoscopes. These effects can be combined and randomised across synthetic frames for domain randomisation.
+
+<p align="center">
+  <img src="assets/Rendering/Post_processing.PNG" width="560" alt="Post-processing panel in Render Settings"/>
+</p>
+<p align="center"><em>The post-processing panel is available from Render Settings and controls image-space optical effects.</em></p>
+
 ### Editing Post-Processing Effects
 
 To configure post-processing effects that apply to the rendered output:
@@ -118,5 +134,3 @@ To configure post-processing effects that apply to the rendered output:
 1. Open **Render Settings** &rarr; **Post-Processing** panel.
 2. Adjust effects such as bloom, chromatic aberration, vignetting, lens distortion, or motion blur to replicate the optical characteristics of a real endoscope.
 3. Preview the result in the viewport before running a full capture.
-
-> **Tip:** Vary post-processing parameters across capture runs to increase visual diversity in the synthetic dataset.

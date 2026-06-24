@@ -4,12 +4,13 @@
 
 EndoX is an Omniverse Kit extension that provides a unified GUI panel for generating large-scale, multi-modal synthetic endoscopy datasets with pixel-perfect ground truth. It covers the full pipeline from medical imaging input to data capture, eliminating the need for expensive and privacy-sensitive clinical data collection.
 
+
 ---
-## Sample Dataset for Anonymous Submission
+## EndoX Dataset
 
-Sample dataset for Anonymous Submission to MICCAI 2026 
+The EndoX sample dataset is available on Hugging Face:
 
-[Sample Dataset](https://zenodo.org/records/18792026?token=eyJhbGciOiJIUzUxMiIsImlhdCI6MTc3MjE3MjU0MSwiZXhwIjoxNzkxNTkwMzk5fQ.eyJpZCI6ImYzNzg1YWNlLTNlMGYtNDVkNi04Yjg2LTliZDNiYTA0OTY3MiIsImRhdGEiOnt9LCJyYW5kb20iOiI0ZGJlNGUxOGU5ZTgzNmIyOThhYmZmNGQ0NDY0YjFjYSJ9.d_73DkwTAweNHgqvycmWH2Z4Kro3RnIE9yOV6JryFfJQ3ucNB7YexT0VR8GaMrsJIP_hoW0w10-wGbbjjcuqqg)
+[EndoX_Dataset](https://huggingface.co/datasets/bealam111/EndoX_Dataset)
 
 
 ## Features
@@ -192,7 +193,11 @@ Provide a path to an existing OBJ file and click **Import OBJ to Stage**.
 2. Click **Pick Outlet on Mesh** to place the outlet marker.
 3. Click **Run All (Extract -> VMTK -> Motion Path)** to extract scene data, compute the centreline, and display the motion path as a BasisCurves prim.
 
-### 3. Capture Synthetic Data
+### 3. Customise the Scene (Optional)
+
+After importing the organ mesh and preparing the camera path, you can optionally edit the scene to match specific simulation scenarios. For example, you can author pathological mucosal textures, introduce polyp-bearing geometry, tune material properties, or adjust post-processing effects to simulate different endoscope appearances. See the [Scene Customization Tutorial](omni.endox/docs/Pathological_Texture_Authoring_Tutorial.md) for details.
+
+### 4. Capture Synthetic Data
 
 1. Set the camera prim path, output directory, resolution, and frame count.
 2. Select the desired modalities (RGB, Depth, Normals, Optical Flow, Camera Pose).
@@ -202,7 +207,7 @@ Provide a path to an existing OBJ file and click **Import OBJ to Stage**.
 4. For occlusion maps, click **Capture Occlusion Only** (runs separately due to clipping-plane manipulation).
 ![capture_occlusion](docs/assets/capture_occlusion.gif)
 
-### 4. Compute Coverage
+### 5. Compute Coverage
 
 1. Set the mesh and camera prim paths.
 2. Click **Compute Coverage Map** to run Warp ray-casting across all timeline frames.
