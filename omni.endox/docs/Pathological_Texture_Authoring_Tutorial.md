@@ -75,9 +75,9 @@ Once the pathological texture is assigned, the scene is ready for EndoX AOV capt
 Example captured frames with pathological texture applied:
 
 <p align="center">
-  <img src="assets/pathological_texture/0029.png" width="210" alt="Captured frame 0029"/>
-  <img src="assets/pathological_texture/0534.png" width="210" alt="Captured frame 0534"/>
-  <img src="assets/pathological_texture/0674.png" width="210" alt="Captured frame 0674"/>
+  <img src="assets/pathological_texture/0029.png" width="230" alt="Captured frame 0029"/>
+  <img src="assets/pathological_texture/0534.png" width="230" alt="Captured frame 0534"/>
+  <img src="assets/pathological_texture/0674.png" width="230" alt="Captured frame 0674"/>
 </p>
 
 ---
