@@ -22,24 +22,38 @@ This tutorial shows how to edit scenes in NVIDIA Omniverse to support different 
 
 Start with the normal mucosal texture for the target GI organ. This texture should be UV-compatible with the organ mesh so that it wraps cleanly along the lumen.
 
-Next, prepare one or more pathological patterns that will be blended onto the base mucosa. Two example patterns are provided below.
+Next, prepare one or more pathological patterns that will be blended onto the base mucosa. The first row below shows the source pathological patterns; the second row shows the resulting pathological textures after overlaying each pattern onto the normal mucosal texture.
 
-**Ulcerative colitis pattern**
-
-
-<p align="center">
-  <img src="assets/pathological_texture/ulcerative_colitis_pattern.png" width="260" alt="Ulcerative colitis pattern"/>
-</p>
-
-**Bleeding / diffuse inflammation pattern**
-
-<p align="center">
-  <img src="assets/pathological_texture/bleeding_pattern.png" width="260" alt="Bleeding pattern"/>
-</p>
+<table>
+  <tr>
+    <td align="center">
+      <img src="assets/pathological_texture/ulcerative_colitis_pattern.png" width="260" alt="Ulcerative colitis pattern"/>
+      <br/>
+      <em>Ulcer pattern</em>
+    </td>
+    <td align="center">
+      <img src="assets/pathological_texture/bleeding_pattern.png" width="260" alt="Bleeding pattern"/>
+      <br/>
+      <em>Bleeding pattern</em>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="assets/pathological_texture/pathological_texture_ulcer_overlay.png" width="260" alt="Generated ulcer pathological texture"/>
+      <br/>
+      <em>Overlay ulcer</em>
+    </td>
+    <td align="center">
+      <img src="assets/pathological_texture/pathological_texture_bleeding_overlay.png" width="260" alt="Generated bleeding pathological texture"/>
+      <br/>
+      <em>Overlay bleeding</em>
+    </td>
+  </tr>
+</table>
 
 #### Step 2 &mdash; Overlay the Pathology Pattern
 
-Use an image editor (e.g. Photoshop, GIMP, Krita) or a programmatic approach (e.g. Python + Pillow) to composite the pathological pattern over the normal mucosal texture. Export the result as a renderable texture in `.png` or `.tga` format.
+Use an image editor (e.g. Photoshop, GIMP, Krita) or a programmatic approach (e.g. Python + Pillow) to composite the pathological pattern over the normal mucosal texture. If the pathology image already has a transparent background, resize the normal mucosal texture to match the pathology image, then place the pathology layer directly above it. Export the result as a renderable texture in `.png` or `.tga` format.
 
 #### Step 3 &mdash; Link the Pathological Texture in Omniverse
 
@@ -126,10 +140,20 @@ To adjust material parameters for the organ surface:
 
 Post-processing effects are configured to simulate optical imperfections common in clinical endoscopes. These effects can be combined and randomised across synthetic frames for domain randomisation.
 
-<p align="center">
-  <img src="assets/Rendering/Post_processing.PNG" width="560" alt="Post-processing panel in Render Settings"/>
-</p>
-<p align="center"><em>The post-processing panel is available from Render Settings and controls image-space optical effects.</em></p>
+<table>
+  <tr>
+    <td align="center">
+      <img src="assets/Rendering/Post_processing.PNG" width="320" alt="Post-processing panel in Render Settings"/>
+    </td>
+    <td align="center">
+      <img src="assets/Rendering/fig2_configuration.png" width="320" alt="Rendering configuration panel"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><em>Post-processing panel in Render Settings</em></td>
+    <td align="center"><em>Rendering configuration panel for simulation setup</em></td>
+  </tr>
+</table>
 
 ### Editing Post-Processing Effects
 
