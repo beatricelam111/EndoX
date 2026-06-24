@@ -476,7 +476,7 @@
                 <button data-modality="worldNormals">World normals</button>
                 <button class="active" data-modality="depth">Depth</button>
                 <button data-modality="occlusion">Occlusion</button>
-                <button disabled title="Placeholder asset">Optical flow</button>
+                <button data-modality="opticalFlow">Optical flow</button>
               </div>
             </div>
           </article>
@@ -496,7 +496,7 @@
                 <button data-modality="worldNormals">World normals</button>
                 <button class="active" data-modality="depth">Depth</button>
                 <button data-modality="occlusion">Occlusion</button>
-                <button disabled title="Placeholder asset">Optical flow</button>
+                <button data-modality="opticalFlow">Optical flow</button>
               </div>
             </div>
           </article>
@@ -516,7 +516,7 @@
                 <button data-modality="worldNormals">World normals</button>
                 <button class="active" data-modality="depth">Depth</button>
                 <button data-modality="occlusion">Occlusion</button>
-                <button disabled title="Placeholder asset">Optical flow</button>
+                <button data-modality="opticalFlow">Optical flow</button>
               </div>
             </div>
           </article>
@@ -657,6 +657,11 @@
           label: "Occlusion",
           src: "static/images/occlusion_0501.png",
           description: "Occlusion masks identify pixels hiding downstream mesh surfaces."
+        },
+        opticalFlow: {
+          label: "Optical Flow",
+          src: "static/images/optical_flow_0501.png",
+          description: "Per-pixel motion vectors encode frame-to-frame displacement in X and Y directions."
         }
       },
       pathological: {
@@ -679,6 +684,11 @@
           label: "Occlusion",
           src: "static/images/occlusion_0540.png",
           description: "Binary visibility masks separate foreground exposure from hidden anatomy."
+        },
+        opticalFlow: {
+          label: "Optical Flow",
+          src: "static/images/optical_flow_0540.png",
+          description: "Optical flow captures inter-frame motion under pathological surface appearance."
         }
       },
       polyp: {
@@ -701,6 +711,11 @@
           label: "Occlusion",
           src: "static/images/occlusion_2733.png",
           description: "Occlusion maps highlight visibility boundaries caused by folds and lesions."
+        },
+        opticalFlow: {
+          label: "Optical Flow",
+          src: "static/images/optical_flow_2733.png",
+          description: "Motion vectors reveal capsule and tissue dynamics around polyp geometry."
         }
       }
     };
