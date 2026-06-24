@@ -24,7 +24,7 @@ Start with the normal mucosal texture for the target GI organ. This texture shou
 
 Next, prepare one or more pathological patterns that will be blended onto the base mucosa. The first row below shows the source pathological patterns; the second row shows the resulting pathological textures after overlaying each pattern onto the normal mucosal texture.
 
-<table>
+<table align="center">
   <tr>
     <td align="center">
       <img src="assets/pathological_texture/ulcerative_colitis_pattern.png" width="260" alt="Ulcerative colitis pattern"/>
@@ -67,7 +67,7 @@ After exporting the pathological texture, assign it to the organ material in Omn
 6. Confirm that the organ surface updates in the viewport. If the texture appears rotated, stretched, or offset, verify the mesh UVs and texture tiling settings.
 
 <p align="center">
-  <img src="assets/pathological_texture/omniverse_texture_linking.png" width="7000" alt="Omniverse folder tree and texture linking"/>
+  <img src="assets/pathological_texture/omniverse_texture_linking.png" width="700" alt="Omniverse folder tree and texture linking"/>
 </p>
 <p align="center"><em>Navigate the Omniverse folder tree to locate the organ material, then link the pathological texture file.</em></p>
 
@@ -140,17 +140,21 @@ To adjust material parameters for the organ surface:
 
 Post-processing effects are configured to simulate optical imperfections common in clinical endoscopes. These effects can be combined and randomised across synthetic frames for domain randomisation.
 
-<table>
+<table align="center">
   <tr>
     <td align="center">
-      <img src="assets/Rendering/Post_processing.PNG" width="320" alt="Post-processing panel in Render Settings"/>
-    </td>
-    <td align="center">
-      <img src="assets/Rendering/fig2_configuration.png" width="320" alt="Rendering configuration panel"/>
+      <img src="assets/Rendering/Post_processing.PNG" width="680" alt="Post-processing panel in Render Settings"/>
     </td>
   </tr>
   <tr>
     <td align="center"><em>Post-processing panel in Render Settings</em></td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="assets/Rendering/fig2_configuration.png" width="560" alt="Rendering configuration panel"/>
+    </td>
+  </tr>
+  <tr>
     <td align="center"><em>Rendering configuration panel for simulation setup</em></td>
   </tr>
 </table>
