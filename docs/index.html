@@ -558,10 +558,10 @@
         <p>The example scene in the sample dataset was reconstructed from CT colonography data (CC BY 3.0), with the mesh surface texture adopted from VRCaps. For each video sequence, we provide: <strong>(i) a triangulated 3D mesh reconstructed from CT data (Wavefront OBJ)</strong>, and <strong>(ii) a vertex-wise coverage map in vertex indices array in .npz format</strong>.</p>
         <p>For every frame, we provide the following annotations:</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem 2rem;margin-top:0.75rem;">
-          <p style="margin:0;"><strong>Depth:</strong> distance from the camera plane to the object surface, clamped to 0&ndash;100 mm, linearly scaled, encoded as a 16-bit grayscale image.</p>
+          <p style="margin:0;"><strong>Depth:</strong> distance from the camera plane to the object surface, clamped to 0.1&ndash;100 mm, linearly scaled, encoded as a 16-bit grayscale image.</p>
           <p style="margin:0;"><strong>Surface normals:</strong> reported in world and camera coordinates; X, Y, Z components stored in R, G, B channels, each linearly mapped from [&minus;1, 1] to [0, 65535] as a 16-bit color image.</p>
           <p style="margin:0;"><strong>Optical flow:</strong> per-pixel displacement between consecutive frames; R and G channels encode X- and Y-direction motion (&plusmn;512 px), each linearly mapped to [0, 65535] as a 16-bit color image (the first frame carries no flow value).</p>
-          <p style="margin:0;"><strong>Occlusion:</strong> an 8-bit binary mask within the 0&ndash;100 mm clipping range; pixels occluding other mesh faces set to 255, all others to 0.</p>
+          <p style="margin:0;"><strong>Occlusion:</strong> an 8-bit binary mask within the 1&ndash;100 mm clipping range; pixels occluding other mesh faces set to 255, all others to 0.</p>
           <p style="margin:0;"><strong>Camera pose:</strong> per-frame world-space translation and rotation stored as t<sub>x</sub>, t<sub>y</sub>, t<sub>z</sub>, q<sub>x</sub>, q<sub>y</sub>, q<sub>z</sub>, q<sub>w</sub> (unit quaternion) in a text file.</p>
           <p style="margin:0;"><strong>Coverage map:</strong> vertex-wise visibility stored as an index array in .npz format.</p>
         </div>
