@@ -176,7 +176,7 @@ Several pre-built demo scenes composing the datasets are included in the `omni/e
   ```
 3. The scene will load with a pre-configured organ mesh, camera, and materials ready for centreline extraction, AOV capture, and coverage mapping.
 
-**Demo scene attribution:** The 3D organ mesh in the demo scene was reconstructed from one sample of CT colonography data provided by the CT COLONOGRAPHY collection [1] hosted on The Cancer Imaging Archive. The mesh surface texture was adopted from VR-Caps [2].
+**Demo scene attribution:** The 3D organ meshes in the demo scenes were reconstructed from samples of CT colonography data provided by the CT COLONOGRAPHY collection [1] hosted on The Cancer Imaging Archive. The mesh surface texture was adopted from VR-Caps [2].
 
 > [1] Smith, K., Clark, K., Bennett, W., Nolan, T., Kirby, J., Wolfsberger, M., Moulton, J., Vendt, B., Freymann, J.: Data from CT COLONOGRAPHY. The Cancer Imaging Archive (2015).
 >
