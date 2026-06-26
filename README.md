@@ -167,12 +167,12 @@ The EndoX panel will appear in the Omniverse GUI.
 
 ### Demo Scene
 
-A pre-built demo scene is included at `omni/endox/demo/demo_scene.usd`. To get started quickly:
+Several pre-built demo scenes composing the datasets are included in the `omni/endox/demo/` folder. To get started quickly:
 
 1. Open Omniverse Code (or your Kit-based app) with EndoX enabled.
-2. Go to **File -> Open** and navigate to the extension directory:
+2. Go to **File -> Open** and navigate to a demo scene, e.g.:
   ```
-   <exts_path>/omni.endox/omni/endox/demo/demo_scene.usd
+   <exts_path>/omni.endox/omni/endox/demo/dataset-colon-sequence1.usda
   ```
 3. The scene will load with a pre-configured organ mesh, camera, and materials ready for centreline extraction, AOV capture, and coverage mapping.
 
