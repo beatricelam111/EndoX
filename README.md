@@ -186,7 +186,7 @@ A pre-built demo scene is included at `omni/endox/demo/demo_scene.usd`. To get s
 
 **Option A - DICOM pipeline:**
 Provide a DICOM folder and a Vista3D model bundle path, configure segmentation settings (organ label, smoothing, decimation), then click **Run DICOM Pipeline**. The extension segments the scan, generates an OBJ mesh, converts it to USD, and adds it to the stage.
-import_dicom_mesh
+![Import DICOM Mesh](docs/assets/import_dicom_mesh.gif)
 
 **Option B - Direct OBJ import:**
 Provide a path to an existing OBJ file and click **Import OBJ to Stage**.
@@ -207,11 +207,11 @@ After importing the organ mesh and preparing the camera path, you can optionally
 2. Select the desired modalities (RGB, Depth, Normals, Optical Flow, Camera Pose).
 3. Click **Capture Selected Modalities** to begin GPU-accelerated capture.
 
-capture_modalities
+![Capture Modalities](docs/assets/capture_modalities.gif)
 
 1. For occlusion maps, click **Capture Occlusion Only** (runs separately due to clipping-plane manipulation).
 
-capture_occlusion
+![Capture Occlusion](docs/assets/capture_occlusion.gif)
 
 ### 5. Compute Coverage
 
@@ -220,7 +220,7 @@ capture_occlusion
 3. The mesh is coloured red (visible) / blue (not visible). Toggle **Show Materials** to switch back to photorealistic rendering.
 4. Coverage data is saved as `.npz` and can be reloaded later.
 
-capture_coverage
+![Capture Coverage](docs/assets/capture_coverage.gif)
 
 ---
 
