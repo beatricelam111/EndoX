@@ -238,6 +238,11 @@ The following table summarise EndoX scalability and speed on an NVIDIA RTX A6000
 | Warp acceleration for post-processing | GPU kernels vs CPU              | 2.4x-29.3x speedup across modalities |
 
 
+## Containerized Omniverse Extension
+
+The containerized version of the EndoX Omniverse extension is to be released upon paper release.
+
+
 ---
 
 ## Project Structure

@@ -7,6 +7,7 @@ This tutorial shows how to edit scenes in NVIDIA Omniverse to support different 
 - [Pathology Authoring](#pathology-authoring)
   - [1. Pathological Texture](#1-pathological-texture)
   - [2. Polyps](#2-polyps)
+- [Surgical Device Import](#surgical-device-import)
 - [Material Editing](#material-editing)
   - [Editing Material Properties](#editing-material-properties)
 - [Post-Processing Effect Editing](#post-processing-effect-editing)
@@ -113,6 +114,26 @@ Example rendered frames from a polyp-bearing mesh:
 <p align="center">
   <img src="assets/polyps/2519.png" width="300" alt="Polyp frame 2519"/>
   <img src="assets/polyps/2733.png" width="300" alt="Polyp frame 2733"/>
+</p>
+
+---
+
+## Surgical Device Import
+
+Surgical instruments can be introduced into EndoX scenes as additional mesh assets to create tool-tissue interaction contexts, occlusion scenarios, or more realistic endoscopic views. As one example source for surgical device mesh import, see the [ORBIT-Surgical repository](https://github.com/orbit-surgical/orbit-surgical/tree/main), which provides an Omniverse-based surgical simulation framework and related surgical robot assets.
+
+To import a surgical device mesh into an EndoX scene:
+
+1. Prepare the device geometry in a format supported by Omniverse, such as `.obj`, `.usd`, or `.usda`.
+2. Open the EndoX scene in Omniverse Code or your Kit-based app.
+3. Import the device mesh into the stage using **File -> Import** or by dragging the asset into the viewport.
+4. Position, rotate, and scale the device so it appears within the endoscopic field of view.
+5. Assign or tune materials for the device surface, then verify that it renders correctly during RGB, depth, normal, optical-flow, and occlusion capture.
+
+Example of a surgical device imported into an EndoX scene:
+
+<p align="center">
+  <img src="assets/Rendering/0000.png" width="560" alt="Surgical device imported into an EndoX scene"/>
 </p>
 
 ---
