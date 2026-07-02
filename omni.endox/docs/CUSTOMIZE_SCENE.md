@@ -133,7 +133,7 @@ To import a surgical device mesh into an EndoX scene:
 Example of a surgical device imported into an EndoX scene:
 
 <p align="center">
-  <img src="assets/Rendering/0000.png" width="560" alt="Surgical device imported into an EndoX scene"/>
+  <img src="assets/Rendering/0000.png" width="300" alt="Surgical device imported into an EndoX scene"/>
 </p>
 
 ---
